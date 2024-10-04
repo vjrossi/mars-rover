@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MarsRover": {
+      "commandName": "Project",
+      "commandLineArgs": "--grid 100 100 --commands 44N MMRMMLMRMM"
+    }
+  }
+}
