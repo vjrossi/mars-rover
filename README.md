@@ -17,20 +17,35 @@ This project simulates the movement of robotic rovers on a rectangular plateau o
    cd mars-rover
 
 3. Build the project:
-   dotnet build
+   dotnet build -c Release
 
 ## Usage
 
-To run the Mars Rover simulation, use the following command:
+There are two ways to run the Mars Rover simulation:
 
-dotnet run --project MarsRover -- --grid <x> <y> --commands "<rover1_commands>" "<rover2_commands>" ...
+### Using dotnet run
+
+Use the following command:
+
+dotnet run --project MarsRover --grid <x> <y> --commands "<rover1_commands>" "<rover2_commands>" ...
+
+### Using the compiled executable
+
+After building the project, you can run the compiled executable directly:
+
+1. Navigate to the output directory:
+   cd MarsRover/bin/Release/net8.0
+
+2. Run the executable:
+   
+   MarsRover.exe --grid <x> <y> --commands "<rover1_commands>" "<rover2_commands>" ...
 
 Where:
 - <x> and <y> are the dimensions of the plateau
 - <rover_commands> are the initial position and movement commands for each rover
 
 Example:
-dotnet run --project MarsRover -- --grid 5 5 --commands "1 2 N LMLMLMLMM" "3 3 E MMRMMRMRRM"
+MarsRover.exe --grid 5 5 --commands "1 2 N LMLMLMLMM" "3 3 E MMRMMRMRRM"
 
 This command will:
 1. Create a 5x5 plateau
