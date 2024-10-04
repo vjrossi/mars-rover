@@ -1,0 +1,72 @@
+# Mars Rover Simulation
+
+This project simulates the movement of robotic rovers on a rectangular plateau on Mars. The rovers can be controlled through a series of commands to move and rotate.
+
+## Getting Started
+
+### Prerequisites
+
+- .NET 8.0 SDK or later
+
+### Installation
+
+1. Clone the repository:
+   git clone https://github.com/yourusername/mars-rover.git
+
+2. Navigate to the project directory:
+   cd mars-rover
+
+3. Build the project:
+   dotnet build
+
+## Usage
+
+To run the Mars Rover simulation, use the following command:
+
+dotnet run --project MarsRover -- --grid <x> <y> --commands "<rover1_commands>" "<rover2_commands>" ...
+
+Where:
+- <x> and <y> are the dimensions of the plateau
+- <rover_commands> are the initial position and movement commands for each rover
+
+Example:
+dotnet run --project MarsRover -- --grid 5 5 --commands "1 2 N LMLMLMLMM" "3 3 E MMRMMRMRRM"
+
+This command will:
+1. Create a 5x5 plateau
+2. Deploy the first rover at position (1, 2) facing North, then move it according to the commands
+3. Deploy the second rover at position (3, 3) facing East, then move it according to the commands
+
+The program will output the final positions of each rover.
+
+## Command Format
+
+- The grid size is specified as two integers representing the upper-right coordinates of the plateau.
+- Each rover's commands are given in the format: "X Y Direction Commands"
+  - X and Y are the initial coordinates of the rover
+  - Direction is one of N (North), E (East), S (South), W (West)
+  - Commands is a string of instructions:
+    - L: Turn left 90 degrees
+    - R: Turn right 90 degrees
+    - M: Move forward one grid point
+
+## Project Structure
+
+The project is structured as follows:
+
+- MarsRover/: Contains the main application code
+  - Program.cs: Entry point of the application
+  - models/: Contains the core classes for the simulation
+- MarsRover.Tests/: Contains unit tests for the application
+
+## Running Tests
+
+To run the unit tests, use the following command:
+
+dotnet test
+
+## Features
+
+- Multiple rovers can be deployed and controlled independently
+- Rovers cannot move outside the defined plateau
+- Rovers take photos at their final positions
