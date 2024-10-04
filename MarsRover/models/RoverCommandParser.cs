@@ -2,18 +2,28 @@ using System.Text.RegularExpressions;
 
 namespace MarsRover;
 
+/// <summary>
+/// A parser for rover commands.
+/// </summary>
 public class RoverCommandParser
 {
+    /// <summary>
+    /// Check if the command is an initialisation command.
+    /// </summary>
+    /// <param name="command">The command to check.</param>
+    /// <returns>True if the command is an initialisation command, false otherwise.</returns>
     public bool IsInitialisation(string command)
     {
         return Regex.IsMatch(command, @"^\d+\s+\d+$");
     }
 
-    public bool IsMove(string command)
-    {
-        return Regex.IsMatch(command, @"^[LRM]+$");
-    }
-
+    /// <summary>
+    /// Parse the commands for a rover.
+    /// </summary>
+    /// <param name="commandString">The command string.</param>
+    /// <param name="rover">The rover.</param>
+    /// <returns>The commands for the rover.</returns>
+    /// <exception cref="ArgumentException">Thrown if the command string is not valid.</exception>
     public List<ICommand> GetCommands(string commandString, IRover rover)
     {
         List<ICommand> commands = [];

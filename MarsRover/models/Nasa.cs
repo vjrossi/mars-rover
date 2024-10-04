@@ -7,6 +7,7 @@ public class Nasa
 {
     private ExplorationZone? _explorationZone;
     private RoverCommandParser _roverCommandParser;
+
     public Nasa()
     {
         _roverCommandParser = new RoverCommandParser();
@@ -50,7 +51,15 @@ public class Nasa
         return result;
     }
 
-    private List<ICommand> SimulateRoverPath( Position initialPosition, Facing initialFacing, string commandsString, IRover rover)
+    /// <summary>
+    /// Simulate the rover path according to the commands, and if any command would send the rover off the grid, remove the command from the list
+    /// </summary>
+    /// <param name="initialPosition">The initial position of the rover.</param>
+    /// <param name="initialFacing">The initial facing of the rover.</param>
+    /// <param name="commandsString">The commands to simulate.</param>
+    /// <param name="rover">The rover to simulate.</param>
+    /// <returns>The list of commands that were successfully simulated.</returns>
+    private List<ICommand> SimulateRoverPath(Position initialPosition, Facing initialFacing, string commandsString, IRover rover)
     {
         // use a dummy rover to simulate the path
         DummyRover dummyRover = new(initialPosition, initialFacing, new RoverCamera());

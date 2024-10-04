@@ -1,6 +1,9 @@
 
 namespace MarsRover
 {
+    /// <summary>
+    /// Interface for a rover.
+    /// </summary>
     public interface IRover
     {
         Position RoverPosition { get; }

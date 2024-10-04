@@ -9,6 +9,9 @@ public enum TurnDirection
     L
 }
 
+/// <summary>
+/// 
+/// </summary>
 public enum Facing
 {
     N,

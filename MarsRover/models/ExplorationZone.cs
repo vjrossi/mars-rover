@@ -2,8 +2,16 @@
 
 namespace MarsRover;
 
+/// <summary>
+/// Represents the exploration zone the rovers are navigating.
+/// </summary>
 public class ExplorationZone
 {
+    /// <summary>
+    /// Constructor for the exploration zone.
+    /// </summary>
+    /// <param name="width">The width of the exploration zone.</param>
+    /// <param name="height">The height of the exploration zone.</param>
     public ExplorationZone(int width, int height)
     {
         if (width <= 0 || height <= 0)
@@ -20,7 +28,15 @@ public class ExplorationZone
         Height = height;
     }
 
+    /// <summary>
+    /// The width of the exploration zone.
+    /// </summary>
     public int Width { get; set; }
+
+    /// <summary>
+    /// The height of the exploration zone.
+    /// </summary>
+    /// 
     public int Height { get; set; }
 
     /// <summary>

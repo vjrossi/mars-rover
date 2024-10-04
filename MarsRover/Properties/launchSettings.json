@@ -2,7 +2,7 @@
   "profiles": {
     "MarsRover": {
       "commandName": "Project",
-      "commandLineArgs": "--grid 100 100 --commands 44N MMRMMLMRMM"
+      "commandLineArgs": "--grid 100 100 --commands \"5 5 S MRMMRMLMML\" \"55 55 E MMLMMLMM\" \"0 0 N MMRMMLM\" \"10 10 W MLMLMLMRM\" \"99 99 S MLLMMRMRM\""
     }
   }
 }

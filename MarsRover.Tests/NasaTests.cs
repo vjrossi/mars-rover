@@ -22,10 +22,13 @@ public class NasaTests
     {
         // Arrange
         Nasa nasa = new();
-        var result = nasa.AcceptCommands(["5 5"]);
+        nasa.AcceptCommands(["5 5"]);
 
         // Act
-        result = nasa.AcceptCommands(["5 5", "5 5 N"]);
+        var result = nasa.AcceptCommands(["5 5 N", "MMMMMM"]);
+
+        // Assert
+        Assert.Equal("5 5 N", result);
     }
 
     [Fact]

@@ -1,35 +1,12 @@
 namespace MarsRover;
 
+/// <summary>
+/// Interface for a command that can be executed by a rover.
+/// </summary>
 public interface ICommand
 {
     void Execute();
 }
-
-/// <summary>
-/// Initialise the rover to a position and facing.
-/// </summary>
-// public class InitialiseCommand : ICommand
-// {
-//     private IRover _rover;
-//     private Position _position;
-//     private Facing _facing;
-
-//     public InitialiseCommand(IRover rover, Position position, Facing facing)
-//     {
-//         _rover = rover;
-//         _position = position;
-//         _facing = facing;
-//     }
-
-//     public void Execute()
-//     {
-//         _rover.RoverPosition = _position;
-//         do
-//         {
-//             _rover.Rotate(TurnDirection.R);
-//         } while (_rover.RoverFacing != _facing);
-//     }
-// }
 
 /// <summary>
 /// Move the rover forward by a number of units.
