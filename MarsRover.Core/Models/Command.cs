@@ -1,4 +1,4 @@
-namespace MarsRover;
+namespace MarsRover.Core.Models;
 
 /// <summary>
 /// Interface for a command that can be executed by a rover.

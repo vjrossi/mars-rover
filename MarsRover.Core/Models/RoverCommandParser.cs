@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace MarsRover;
+namespace MarsRover.Core.Models;
 
 /// <summary>
 /// A parser for rover commands.

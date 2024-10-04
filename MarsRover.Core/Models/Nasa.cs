@@ -1,4 +1,4 @@
-namespace MarsRover;
+namespace MarsRover.Core.Models;
 
 /// <summary>
 /// This is the 'simulation' class. It is responsible for managing the rovers and the exploration zone.

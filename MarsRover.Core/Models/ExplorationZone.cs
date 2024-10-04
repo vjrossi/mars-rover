@@ -1,6 +1,4 @@
-// this class represents the exploration zone. it can be square or rectangular
-
-namespace MarsRover;
+namespace MarsRover.Core.Models;
 
 /// <summary>
 /// Represents the exploration zone the rovers are navigating.

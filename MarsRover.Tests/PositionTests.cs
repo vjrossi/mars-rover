@@ -1,4 +1,4 @@
-using MarsRover;
+using MarsRover.Core.Models;
 
 namespace MarsRover.Tests;
 

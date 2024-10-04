@@ -1,4 +1,6 @@
-﻿namespace MarsRover
+﻿using MarsRover.Core.Models;
+
+namespace MarsRover
 {
     public class Program
     {

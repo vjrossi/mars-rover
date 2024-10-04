@@ -1,3 +1,5 @@
+using MarsRover.Core.Models;
+
 namespace MarsRover.Tests;
 
 public class RoboticRoverTests
