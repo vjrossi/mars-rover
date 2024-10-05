@@ -11,10 +11,10 @@ public struct Position
 
     public Position(int x, int y)
     {
-        if (x < -1 || y < -1)
-        {
-            throw new ArgumentOutOfRangeException("x and y must be positive integers.");
-        }
+        //if (x < -1 || y < -1)
+        //{
+        //    throw new ArgumentOutOfRangeException("x and y must be positive integers.");
+        //}
 
         X = x;
         Y = y;

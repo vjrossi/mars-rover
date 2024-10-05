@@ -73,10 +73,10 @@ public class RoboticRover : IRover
     /// <exception cref="ArgumentOutOfRangeException">Thrown when the units are less than 0 or greater than the maximum speed.</exception>
     public Position Move(int units)
     {
-        if (!IsInitialised)
-        {
-            throw new Exception("Rover position or facing not initialised");
-        }
+        //if (!IsInitialised)
+        //{
+        //    throw new Exception("Rover position or facing not initialised");
+        //}
 
         if (units < 0 || units > _maxSpeed)
         {
@@ -113,10 +113,10 @@ public class RoboticRover : IRover
     /// <returns>True if the rover rotated, false otherwise.    </returns>
     public void Rotate(TurnDirection direction)
     {
-        if (!IsInitialised)
-        {
-            throw new Exception("Rover position or facing not initialised");
-        }
+        //if (!IsInitialised)
+        //{
+        //    throw new Exception("Rover position or facing not initialised");
+        //}
 
         RoverFacing = (Facing)((int)(RoverFacing + (direction == TurnDirection.L ? 3 : 1)) % 4);
     }
