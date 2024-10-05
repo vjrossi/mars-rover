@@ -21,7 +21,16 @@ This project simulates the movement of robotic rovers on a rectangular plateau o
 
 ## Usage
 
-There are two ways to run the Mars Rover simulation:
+There are three ways to run the Mars Rover simulation:
+
+### Using the Web Interface
+
+1. Start the web application:
+   dotnet run --project MarsRover.Web
+
+2. Open a web browser and navigate to `http://localhost:5000` (or the port specified in the console output).
+
+3. Use the web interface to set up the grid size, add rovers, and run the simulation.
 
 ### Using dotnet run
 
@@ -70,9 +79,13 @@ The program will output the final positions of each rover.
 The project is structured as follows:
 
 - MarsRover/: Contains the main application code
-  - Program.cs: Entry point of the application
+  - Program.cs: Entry point of the console application
   - models/: Contains the core classes for the simulation
 - MarsRover.Tests/: Contains unit tests for the application
+- MarsRover.Web/: Contains the web application
+  - Controllers/: Contains the SimulationController for handling web requests
+  - Views/: Contains the Razor views for the web interface
+  - wwwroot/: Contains static files including JavaScript for the simulation
 
 ## Running Tests
 
@@ -85,3 +98,16 @@ dotnet test
 - Multiple rovers can be deployed and controlled independently
 - Rovers cannot move outside the defined plateau
 - Rovers take photos at their final positions
+- Web interface for easy simulation setup and visualization
+- Real-time animation of rover movements in the web interface
+
+## Web Interface
+
+The web interface provides an intuitive way to set up and run Mars Rover simulations:
+
+1. Set the grid size
+2. Add one or more rovers, specifying their initial positions and commands
+3. Run the simulation to see the rovers move on the grid
+4. Visualize the movement of each rover step by step
+
+The web interface is responsive and works on both desktop and mobile devices.
