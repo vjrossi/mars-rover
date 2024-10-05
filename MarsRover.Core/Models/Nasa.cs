@@ -13,24 +13,23 @@ public class Nasa
         _roverCommandParser = new RoverCommandParser();
     }
 
-
     /// <summary>
     /// Accepts a string of commands, either a 'rover initialise' command
     /// of the form '1 2 N' or a series of 'M', 'L', 'R' characters
     /// for moving the rover around the plateau.
     /// A rover initialisation command will be followed by a series of 
     /// movement commands.
-    /// A rover will complete its sequence of commands by taking a photo,
-    /// which it will upload to the NASA servers.
     /// </summary>
     /// <param name="commandStrings">The command string to accept.</param>
-    /// <returns></returns>
-    public string AcceptCommands(string[] commandStrings)
+    /// <returns>A list of intermediate positions and facings for each step of the rover's movement.</returns>
+    public List<string> AcceptCommands(string[] commandStrings)
     {
+        Console.WriteLine($"Received commands: {string.Join(", ", commandStrings)}");
+        
         if (_roverCommandParser.IsInitialisation(commandStrings[0]))
         {
             _explorationZone = new ExplorationZone(int.Parse(commandStrings[0].Split(' ')[0]), int.Parse(commandStrings[0].Split(' ')[1]));
-            return string.Empty;
+            return new List<string> { "Exploration zone set" };
         }
 
         if (_explorationZone == null)
@@ -43,25 +42,16 @@ public class Nasa
         Facing facing = Enum.Parse<Facing>($"{commandStrings[0].Split(' ')[2]}");
         RoboticRover rover = new(new Position(x, y), facing, new RoverCamera());
 
-        // first simulate the entire rover path according to the commands, and if 
-        // any command would send the rover off the grid, remove the command from the list
-        List<ICommand> commands = SimulateRoverPath( new Position(x, y), facing, commandStrings[1], rover);
+        List<ICommand> commands = SimulateRoverPath(new Position(x, y), facing, commandStrings[1], rover);
 
-        var result = rover.ExecuteCommands(commands);
-        return result;
+        return ExecuteCommandsWithIntermediateSteps(rover, commands);
     }
 
     /// <summary>
     /// Simulate the rover path according to the commands, and if any command would send the rover off the grid, remove the command from the list
     /// </summary>
-    /// <param name="initialPosition">The initial position of the rover.</param>
-    /// <param name="initialFacing">The initial facing of the rover.</param>
-    /// <param name="commandsString">The commands to simulate.</param>
-    /// <param name="rover">The rover to simulate.</param>
-    /// <returns>The list of commands that were successfully simulated.</returns>
     private List<ICommand> SimulateRoverPath(Position initialPosition, Facing initialFacing, string commandsString, IRover rover)
     {
-        // use a dummy rover to simulate the path
         DummyRover dummyRover = new(initialPosition, initialFacing, new RoverCamera());
         List<ICommand> dummyCommands = _roverCommandParser.GetCommands(commandsString, dummyRover);
         string newCommandsString = "";
@@ -76,5 +66,23 @@ public class Nasa
         }
 
         return _roverCommandParser.GetCommands(newCommandsString, rover);
+    }
+
+    /// <summary>
+    /// Execute commands and return a list of intermediate steps.
+    /// </summary>
+    private List<string> ExecuteCommandsWithIntermediateSteps(RoboticRover rover, List<ICommand> commands)
+    {
+        Console.WriteLine($"Executing commands: {string.Join(", ", commands)}");
+        List<string> intermediateSteps = [$"{rover.RoverPosition.X} {rover.RoverPosition.Y} {rover.RoverFacing}"];
+
+        foreach (ICommand command in commands)
+        {
+            command.Execute();
+            intermediateSteps.Add($"{rover.RoverPosition.X} {rover.RoverPosition.Y} {rover.RoverFacing}");
+        }
+
+        Console.WriteLine($"Intermediate steps: {string.Join(", ", intermediateSteps)}");
+        return intermediateSteps;
     }
 }

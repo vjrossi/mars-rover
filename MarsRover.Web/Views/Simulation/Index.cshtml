@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Mars Rover Simulation";
+}
+
+<h1>Mars Rover Simulation</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form id="simulationForm">
+            <div class="form-group">
+                <label for="gridSize">Grid Size:</label>
+                <input type="text" class="form-control" id="gridSize" placeholder="e.g., 5 5" required>
+            </div>
+            <div id="roverCommands">
+                <div class="rover-command">
+                    <h3>Rover 1</h3>
+                    <div class="form-group">
+                        <label for="initialPosition1">Initial Position:</label>
+                        <input type="text" class="form-control initial-position" id="initialPosition1" placeholder="e.g., 1 2 N" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commands1">Commands:</label>
+                        <input type="text" class="form-control commands" id="commands1" placeholder="e.g., LMLMLMLMM" required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" id="addRover">Add Rover</button>
+            <button type="submit" class="btn btn-primary">Run Simulation</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <canvas id="simulationCanvas" width="400" height="400"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/simulation.js"></script>
+}
