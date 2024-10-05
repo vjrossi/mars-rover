@@ -112,4 +112,3 @@ The web interface provides an intuitive way to set up and run Mars Rover simulat
 3. Run the simulation to see the rovers move on the grid
 4. Visualize the movement of each rover step by step
 
-The web interface is responsive and works on both desktop and mobile devices.
