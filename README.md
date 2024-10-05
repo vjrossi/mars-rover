@@ -11,7 +11,7 @@ This project simulates the movement of robotic rovers on a rectangular plateau o
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/mars-rover.git
+   git clone https://github.com/vjrossi/mars-rover.git
 
 2. Navigate to the project directory:
    cd mars-rover
