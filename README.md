@@ -19,6 +19,8 @@ This project simulates the movement of robotic rovers on a rectangular plateau o
 3. Build the project:
    dotnet build -c Release
 
+Alternative to cloning -> download the ZIP.
+
 ## Usage
 
 There are three ways to run the Mars Rover simulation:
