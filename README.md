@@ -2,6 +2,9 @@
 
 This project simulates the movement of robotic rovers on a rectangular plateau on Mars. The rovers can be controlled through a series of commands to move and rotate.
 
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/f149d4ca-031c-429d-862d-bd04900c2c8f">
+
+
 ## Getting Started
 
 ### Prerequisites
